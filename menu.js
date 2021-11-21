@@ -1,5 +1,4 @@
 // Font Size
-let fontSizeInput=document.querySelector(".font_size_input");
 fontSizeInput.addEventListener("change",function(){
     let fontSize = fontSizeInput.value;
     let address = addressInput.value;
@@ -7,11 +6,10 @@ fontSizeInput.addEventListener("change",function(){
     let tobeChangedCell = document.querySelector
         (`.grid .cell[rid='${id.rId}'][cid='${id.cId}']`);
     tobeChangedCell.style.fontSize = fontSize+"px";
+    db[`${id.rId}`][`${id.cId}`].fontSize = fontSize;
 });
 
-
 // Font Family
-let fontFamilyInput=document.querySelector(".font_family_input");
 fontFamilyInput.addEventListener("change",function(){
     let fontFamily = fontFamilyInput.value;
     let address = addressInput.value;
@@ -19,12 +17,10 @@ fontFamilyInput.addEventListener("change",function(){
     let tobeChangedCell = document.querySelector
         (`.grid .cell[rid='${id.rId}'][cid='${id.cId}']`);
     tobeChangedCell.style.fontFamily = fontFamily;
+    db[`${id.rId}`][`${id.cId}`].fontFamily = fontFamily;
 });
 
-
-
 // Bold
-let boldInput=document.querySelector(".fa-bold");
 boldInput.addEventListener("click",function(){
     let address = addressInput.value;
     let id =getRidCid(address);
@@ -34,7 +30,6 @@ boldInput.addEventListener("click",function(){
 });
 
 //Italic
-let ItalicInput=document.querySelector(".fa-italic");
 ItalicInput.addEventListener("click",function(){
     let address = addressInput.value;
     let id =getRidCid(address);
@@ -44,7 +39,6 @@ ItalicInput.addEventListener("click",function(){
 });
 
 //UnderLine
-let UnderlineInput=document.querySelector(".fa-underline");
 UnderlineInput.addEventListener("click",function(){
     let address = addressInput.value;
     let id =getRidCid(address);
@@ -54,7 +48,6 @@ UnderlineInput.addEventListener("click",function(){
 });
 
 // Alignment
-let alignInput=document.querySelector(".alignment_container");
 alignInput.addEventListener("click",function(e){
     if(e.target !== alignInput){
         let classesArr = e.target.classList;
@@ -67,10 +60,7 @@ alignInput.addEventListener("click",function(e){
     }
 });
 
-
 //Colors
-let backgroundHInput = document.querySelector(".background_color");
-let backgroundInput = document.querySelector(".fa-fill-drip");
 backgroundInput.addEventListener("click", function (e){
     backgroundHInput.click();        //dom helping hidden click to trigger
 })
@@ -81,10 +71,9 @@ backgroundHInput.addEventListener("change", function(e){
     let tobeChangedCell = document.querySelector(`.grid .cell[rid='${id.rId}'][cid='${id.cId}']`);
     tobeChangedCell.style.backgroundColor = color;
     backgroundInput.style.color = color;
+    db[`${id.rId}`][`${id.cId}`].backgroundColor = color;
 })
 
-let textColorHInput = document.querySelector(".text_color");
-let textColorInput = document.querySelector(".fa-font");
 textColorInput.addEventListener("click", function (e){
     textColorHInput.click();        //dom helping hidden click to trigger
 })
@@ -95,4 +84,5 @@ textColorHInput.addEventListener("change", function(e){
     let tobeChangedCell = document.querySelector(`.grid .cell[rid='${id.rId}'][cid='${id.cId}']`);
     tobeChangedCell.style.color = color;
     textColorInput.style.color = color;
+    db[`${id.rId}`][`${id.cId}`].color = color;
 })
