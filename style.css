@@ -3,35 +3,151 @@
 }
 body{
     margin:0px;
+    font-family: sans-serif;
 }
+
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 4px;
+    background: #EEEEEE;
+}
+::-webkit-scrollbar-thumb {
+    background: #6A9A8B;
+    border-radius: 2px;
+}
+  
+
+
+
+/* Menu Bar Starts Here */
 .menu_bar{
-    background-color: rgb(158, 197, 231);
     height: 5rem;
+    width: 100vw;
+    background-color:#00754B;
+    display: flex;
 }
+
+.font_family_input{
+    margin-top: 1.4rem;
+    margin-left:2rem;
+    border-top-left-radius:8px;
+    border-bottom-left-radius:8px;
+    text-align: center;
+}
+.font_size_input{
+    border-top-right-radius:8px;
+    border-bottom-right-radius:8px ;
+    width: 4.375rem;
+}
+.new_open_save_container{
+    display: flex;
+    height: 60%;
+    width: 8rem;
+    margin-top: 1.4rem;
+    margin-left: 1rem;
+    background-color: #ffffff;
+    border-radius: 50px;
+    justify-content: space-evenly;
+}
+.icon_container>.fas{
+    margin-top: 0.4rem;
+    font-size: 2rem;
+    color: #00754B;
+}
+.icon_container>.fas:hover{
+    color: #01492f;
+}
+.alignment_container{
+    display: flex;
+    height: 22%;
+    width: 7.5rem;
+    margin-top: 3.2rem;
+    margin-left: -12.1rem;
+    background-color: #ffffff;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    justify-content: space-evenly;
+    padding-top: 0.075rem;
+    font-size: 13px;
+}
+.bui_container{
+    display: flex;
+    height: 22%;
+    width: 4.375rem;
+    margin-top: 3.2rem;
+    margin-left: 0.25rem;
+    background-color: #ffffff;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    justify-content: space-evenly;
+    padding-top: 1.2px;
+    font-size: 13px;
+}
+.color_container{
+    display: flex;
+    height: 34%;
+    width: 5rem;
+    margin-top:2rem;
+    margin-left: 0.5rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    justify-content: space-evenly;
+    font-size: 18px;
+}
+.color_container>i{
+    padding-top: 5px;
+}
+.color_container>input{
+    visibility: hidden;
+    width: 0;
+    border: none;
+}
+.selected{
+    padding: 2px;
+    color: white;
+    background-color: #00754B;
+    border-radius: px;
+}
+
 
 
 
 
 /* Formula Bar Starts Here */
 .formula_bar{
-    background-color:cadetblue;
     height: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #00754B;
+}
+.formula_bar>img{
+    padding: 0.1rem;
+    background-color: #6A9A8B;
+    height: 65%;
 }
 .formula_bar>div{
-    margin-left:1rem;
-    margin-right: 1rem;
+    margin-left:0.5rem;
+    margin-right: 0.5rem;
 }
 .formula_bar>*{
     height: 70%;
 }
 .address_input{
+    border-top-left-radius:8px;
+    border-bottom-left-radius:8px ;
     width: 4rem;
+    text-align: center;
+    outline: none;
+    color: #8e8e8e;
 }
 .formula_input{
+    border-top-right-radius:8px;
+    border-bottom-right-radius:8px ;
     width: calc(100vh - 8rem);
+    outline: none;
 }
 
 
@@ -43,39 +159,46 @@ body{
     overflow: scroll;
 }
 .top_row{
-    background-color: rgb(208, 209, 209);
     display: flex;
     position: relative;
     top: -1.5rem;
     left: 2.1rem;
 }
 .top_row .cell{
+    background-color: #EEEEEE;
     text-align: center;
     min-width: 5rem;
+    padding-top: 1.7px;
 }
 .left_col{
-    background-color: rgb(208, 209, 209);
+    background-color: #EEEEEE;
     width: 2rem;
     text-align: center;
     position: relative;
     top: -1.5rem;
 }
 .cell{
-    border: 0.5px solid rgb(100, 100, 100);
+    border: 0.1px solid rgb(53, 53, 53);
     border-radius: 3px;
     height: 1.5rem;
     text-align: center;
+    outline-color: #00754B;
 }
 .top_left_cell{
     height:1.5rem;
     width: 2rem;
-    text-align: center;
+    background-color: #EEEEEE;
+    border-right: 3px solid #015536;
+    border-bottom: 2px solid #015536;
+    border-radius: 3px;
 }
 .row{
     display: flex;
 }
 .grid .cell{
     min-width: 5rem;
+    border-left: 0px;
+    border-top: 0px;
 }
 .grid_container{
     position: relative;
@@ -91,6 +214,7 @@ body{
 
 /* Sheets Container Starts Here */
 .sheet_container{
-    background-color: burlywood;
+    background-color: #00754B;
     height: 2.5rem;
+    color: white;
 }
