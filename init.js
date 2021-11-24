@@ -52,23 +52,8 @@ for (let i = 0; i < 100; i++) {
 
 // Creating DataBase of cell's values
 let db = [];
-for (let i = 0; i < 100; i++) {
-    let rowArr = []
-    for (let j = 0; j < 26; j++) {
-        let cellObject = {
-            color: "black",
-            backgroundColor: "white",
-            fontFamily: "Arial",
-            fontSize: 16,
-            align: "center",
-            underline: "none",
-            bold: "none",
-            italic: "none"
-        }
-        rowArr.push(cellObject);
-    }
-    db.push(rowArr);
-}
+initDB();
+
 
 
 // Clicking on cell will give address using rID, cID to address Bar
@@ -84,10 +69,35 @@ for (let i = 0; i < allCells.length; i++) {
 
         // *********** TWO WAY BINDING ***********
         let cellObject = db[r][c];
-        let fontSize = cellObject.fontSize;
+        let fontSize = cellObject.fontSize; //fontsize
         fontSizeInput.value=fontSize;
-        let fontFamily = cellObject.fontFamily;
+        let fontFamily = cellObject.fontFamily;//fontfamily
         fontFamilyInput.value=fontFamily;
+        boldInput.classList.remove("selected");//bold
+        if(cellObject.bold){
+            boldInput.classList.add("selected");
+        }
+        ItalicInput.classList.remove("selected");//italic
+        if(cellObject.italic){
+            ItalicInput.classList.add("selected");
+        }
+        UnderlineInput.classList.remove("selected");//underline
+        if(cellObject.underline){
+            UnderlineInput.classList.add("selected");
+        }
+        let options = alignInput.children;//allignment
+        for(let i=0; i<options.length; i++){
+            options[i].classList.remove("selected");
+        }
+        if (cellObject.halign){
+            for(let i = 0; i< options.length; i++){
+                let elementClasses = options[i].classList;
+                let hAlignment = elementClasses[elementClasses.length - 1];
+                if(hAlignment == cellObject.halign){
+                    elementClasses.add("selected");
+                }
+            }
+        }
     })
 }
 
@@ -104,5 +114,27 @@ function getRidCid(address) {
     let rid = Number(address.substring(1)) - 1;
     return {
         rId: rid, cId: cid
+    }
+}
+
+//  Initializing DataBase
+function initDB(){
+    for (let i = 0; i < 100; i++) {
+        let rowArr = []
+        for (let j = 0; j < 26; j++) {
+            let cellObject = {
+                color: "black",
+                backgroundColor: "white",
+                fontFamily: "Arial",
+                fontSize: 16,
+                halign: "center",
+                underline: false,
+                bold: false,
+                italic: false,
+                value: "",
+            }
+            rowArr.push(cellObject);
+        }
+        db.push(rowArr);
     }
 }

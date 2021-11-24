@@ -105,10 +105,12 @@ body{
     border: none;
 }
 .selected{
-    padding: 2px;
-    color: white;
-    background-color: #00754B;
-    border-radius: px;
+    padding-left: 2px;
+    padding-right: 2px;
+    border: 1px solid black;
+    color: rgb(255, 255, 255);
+    background-color: #108d5f;
+    border-radius: 2px;
 }
 
 
