@@ -34,10 +34,12 @@ openInput.addEventListener("change", function (e) {
 // new
 newInput = document.querySelector(".fa-plus-square");
 newInput.addEventListener("click", function(){
-    alert("Opening New Excel Sheet")
-    db=[]        // empty the DB
-    initDB();    //db reset
-    setUI();     //UI reset
+    var confirmNewSheet = confirm("Opening New Excel Sheet")
+    if (confirmNewSheet){
+        db=[]        // empty the DB
+        initDB();    //db reset
+        setUI();     //UI reset
+    }
 })
 function setUI() {
 for (let i = 0; i < 100; i++) {

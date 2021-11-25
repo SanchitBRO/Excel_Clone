@@ -1,10 +1,10 @@
 // **************************MENU ELEMENTS***************************
-let fontSizeInput=document.querySelector(".font_size_input");
-let fontFamilyInput=document.querySelector(".font_family_input");
-let boldInput=document.querySelector(".fa-bold");
-let ItalicInput=document.querySelector(".fa-italic");
-let UnderlineInput=document.querySelector(".fa-underline");
-let alignInput=document.querySelector(".alignment_container");
+let fontSizeInput = document.querySelector(".font_size_input");
+let fontFamilyInput = document.querySelector(".font_family_input");
+let boldInput = document.querySelector(".fa-bold");
+let ItalicInput = document.querySelector(".fa-italic");
+let UnderlineInput = document.querySelector(".fa-underline");
+let alignInput = document.querySelector(".alignment_container");
 let backgroundHInput = document.querySelector(".background_color");
 let backgroundInput = document.querySelector(".fa-fill-drip");
 let textColorHInput = document.querySelector(".text_color");
@@ -59,6 +59,7 @@ initDB();
 // Clicking on cell will give address using rID, cID to address Bar
 let allCells = document.querySelectorAll(".grid .cell");
 let addressInput = document.querySelector(".address_input");
+let formulaInput = document.querySelector(".formula_input")
 for (let i = 0; i < allCells.length; i++) {
     allCells[i].addEventListener("click", function (e) {
         let r = allCells[i].getAttribute("rId");
@@ -70,34 +71,50 @@ for (let i = 0; i < allCells.length; i++) {
         // *********** TWO WAY BINDING ***********
         let cellObject = db[r][c];
         let fontSize = cellObject.fontSize; //fontsize
-        fontSizeInput.value=fontSize;
+        fontSizeInput.value = fontSize;
         let fontFamily = cellObject.fontFamily;//fontfamily
-        fontFamilyInput.value=fontFamily;
+        fontFamilyInput.value = fontFamily;
         boldInput.classList.remove("selected");//bold
-        if(cellObject.bold){
+        if (cellObject.bold) {
             boldInput.classList.add("selected");
         }
         ItalicInput.classList.remove("selected");//italic
-        if(cellObject.italic){
+        if (cellObject.italic) {
             ItalicInput.classList.add("selected");
         }
         UnderlineInput.classList.remove("selected");//underline
-        if(cellObject.underline){
+        if (cellObject.underline) {
             UnderlineInput.classList.add("selected");
         }
         let options = alignInput.children;//allignment
-        for(let i=0; i<options.length; i++){
+        for (let i = 0; i < options.length; i++) {
             options[i].classList.remove("selected");
         }
-        if (cellObject.halign){
-            for(let i = 0; i< options.length; i++){
+        if (cellObject.halign) {
+            for (let i = 0; i < options.length; i++) {
                 let elementClasses = options[i].classList;
                 let hAlignment = elementClasses[elementClasses.length - 1];
-                if(hAlignment == cellObject.halign){
+                if (hAlignment == cellObject.halign) {
                     elementClasses.add("selected");
                 }
             }
         }
+        if (cellObject.color == "") { // Text Color
+            textColorInput.style.color = "black";
+        }
+        else{
+            textColorInput.style.color = cellObject.color;
+        }
+
+        if (cellObject.backgroundColor == "") { // Background Color
+            backgroundInput.style.color = "black";
+        }
+        else{
+            backgroundInput.style.color = cellObject.backgroundColor;
+        }
+        
+
+        formulaInput.value = cellObject.formula; //Formula Bar
     })
 }
 
@@ -105,6 +122,7 @@ for (let i = 0; i < allCells.length; i++) {
 // Get First Cell
 let firstCell = document.querySelector(".grid .cell[rid='0'][cid='0']");
 firstCell.focus();
+firstCell.click();
 
 
 // Get RID CID from address
@@ -118,13 +136,13 @@ function getRidCid(address) {
 }
 
 //  Initializing DataBase
-function initDB(){
+function initDB() {
     for (let i = 0; i < 100; i++) {
         let rowArr = []
         for (let j = 0; j < 26; j++) {
             let cellObject = {
-                color: "black",
-                backgroundColor: "white",
+                color: "",
+                backgroundColor: "",
                 fontFamily: "Arial",
                 fontSize: 16,
                 halign: "center",
@@ -132,6 +150,8 @@ function initDB(){
                 bold: false,
                 italic: false,
                 value: "",
+                formula: "",
+                children: []
             }
             rowArr.push(cellObject);
         }
