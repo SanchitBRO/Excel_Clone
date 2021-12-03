@@ -218,5 +218,47 @@ body{
 .sheet_container{
     background-color: #00754B;
     height: 2.5rem;
-    color: white;
+    display: flex;
+    color :white;
+    font-size: 10px;
 }
+.add-sheet_container{
+    height: 100%;
+    min-width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.newSheet{
+    font-size: 1.3rem;
+}
+.newSheet:hover{
+    font-size: 1.5rem;
+}
+.sheets-list{
+    display: flex;
+    height: 100%;
+    overflow-x: auto;
+}
+.sheets-list{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.sheet{
+    min-width: 60px;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00754B;
+    border: 1px solid #EEEEEE;
+    margin: 2px;
+    border-radius: 5px;
+}
+.active-sheet{
+    border: none;
+    background-color: #01492f;
+}
+
+
+  

@@ -3,7 +3,7 @@ let downloadBtn = document.querySelector(".fa-save");
 downloadBtn.addEventListener("click", function (e) {
     let a = document.createElement("a"); // creating anchor
     // File put -> DB array
-    var StringCode = encodeURIComponent(JSON.stringify(db));
+    var StringCode = encodeURIComponent(JSON.stringify(sheetsDB));
     var dataStr = "data:text/json;charset=utf-8," + StringCode;
     a.href = dataStr; //dataStr will be downloaded
     a.download = "file.json";
@@ -26,14 +26,21 @@ openInput.addEventListener("change", function (e) {
     reader.readAsText(file);
     reader.addEventListener('load', (event) => {
         let JSONdata = JSON.parse(event.target.result);
-        sheetsDb = JSONdata;
-        db = sheetsDb;
+        sheetsDB = JSONdata;
+        db = sheetsDB[0];
         setUI();
+        setSheets();
     });
 })
+function setSheets(){
+    for(let i=0; i<sheetsDB.length-1;i++){
+        sheetOpenHandler();
+    }
+}
 // new
 newInput = document.querySelector(".fa-plus-square");
 newInput.addEventListener("click", function(){
+    sheetsDB = [];
     var confirmNewSheet = confirm("Opening New Excel Sheet")
     if (confirmNewSheet){
         db=[]        // empty the DB

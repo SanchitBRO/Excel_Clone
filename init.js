@@ -9,6 +9,9 @@ let backgroundHInput = document.querySelector(".background_color");
 let backgroundInput = document.querySelector(".fa-fill-drip");
 let textColorHInput = document.querySelector(".text_color");
 let textColorInput = document.querySelector(".fa-font");
+let createSheetIcon = document.querySelector(".newSheet");
+let sheetList = document.querySelector(".sheets-list");
+let firstSheet = document.querySelector(".sheet");
 //*******************************************************************
 
 
@@ -51,8 +54,10 @@ for (let i = 0; i < 100; i++) {
 
 
 // Creating DataBase of cell's values
-let db = [];
+let sheetsDB = []
 initDB();
+let db = sheetsDB[0];
+
 
 
 
@@ -137,6 +142,7 @@ function getRidCid(address) {
 
 //  Initializing DataBase
 function initDB() {
+    let db = [];
     for (let i = 0; i < 100; i++) {
         let rowArr = []
         for (let j = 0; j < 26; j++) {
@@ -157,4 +163,7 @@ function initDB() {
         }
         db.push(rowArr);
     }
+    sheetsDB.push(db);
 }
+
+ 
