@@ -43,9 +43,10 @@ newInput.addEventListener("click", function(){
     sheetsDB = [];
     var confirmNewSheet = confirm("Opening New Excel Sheet")
     if (confirmNewSheet){
-        db=[]        // empty the DB
         initDB();    //db reset
-        setUI();     //UI reset
+        db = sheetsDB[0];
+        setUI();
+        setSheets();
     }
 })
 function setUI() {
