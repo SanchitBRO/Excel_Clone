@@ -40,12 +40,13 @@ function setSheets(){
 // new
 newInput = document.querySelector(".fa-plus-square");
 newInput.addEventListener("click", function(){
-    sheetsDB = [];
     var confirmNewSheet = confirm("Opening New Excel Sheet")
     if (confirmNewSheet){
+        sheetsDB = [];
         initDB();    //db reset
         db = sheetsDB[0];
         setUI();
+        setSheets();
     }
 })
 function setUI() {
