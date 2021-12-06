@@ -46,7 +46,6 @@ newInput.addEventListener("click", function(){
         initDB();    //db reset
         db = sheetsDB[0];
         setUI();
-        setSheets();
     }
 })
 function setUI() {
