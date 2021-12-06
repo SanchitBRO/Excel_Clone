@@ -260,5 +260,79 @@ body{
     background-color: #01492f;
 }
 
+@media only screen and (max-width: 500px) {
+    .new_open_save_container{
+        width: 5rem;
+        height: 40%;
+        margin-left: 0.1rem;
+    }
+    .icon_container>.fas{
+        margin-top: 0.3rem;
+        font-size: 1.4rem;
+    }
+    .font_family_input{
+        margin-top: 1.1rem;
+        margin-left:0.5rem;
+        width: 5rem;
+    }
+    .font_size_input{
+        width: 4rem;
+    }
+    .alignment_container{
+        width: 5rem;
+        margin-left:-9.3rem;
+        margin-top: 2.8rem;
+    }
+    .bui_container{
+        width: 4rem;
+        margin-top: 2.8rem;
+    }
+    .color_container{
+        margin-top: 1.8rem;
+        width: 4.5rem;
+        height: 30%;
+    }
+  }
+  
+  @media only screen and (max-width: 320px) {
+    .new_open_save_container{
+        width: 4rem;
+        height: 35%;
+        margin-left: 0.1rem;
+    }
+    .icon_container>.fas{
+        margin-top: 0.3rem;
+        font-size: 1.2rem;
+    }
+    .font_family_input{
+        margin-top: 0.3rem;
+        margin-left:0.5rem;
+        width: 3.5rem;
+    }
+    .font_size_input{
+        width: 3.5rem;
+    }
+    .alignment_container{
+        width: 3.5rem;
+        margin-left:-7.3rem;
+        margin-top: 2rem;
+        font-size: 0.7rem;
+    }
+    .bui_container{
+        width: 3.5rem;
+        margin-top: 2rem;
+    }
+    .color_container{
+        margin-top: 3.8rem;
+        margin-left: -5.5rem;
+        width: 4.5rem;
+        height: 25%;
+        font-size: 1rem;
+    }
+    .color_container>i{
+        padding-top: 2px;
+    }
+    
+  }
 
   
