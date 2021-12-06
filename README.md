@@ -14,6 +14,7 @@
 
 #### Formatting :
 ![Screenshot 2021-12-06 140314](https://user-images.githubusercontent.com/77201192/144813365-a191a248-0d2d-441b-9053-926ccda85516.png)
+ 
  → Multiple Formatting Features to give the data the looks you desire.
 
 • Font Style and Font Size.
